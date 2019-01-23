@@ -18,8 +18,10 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    fetch('')
-  }  
+    fetch('http://localhost:3000/photos')
+      .then(response => response.json())
+      .then(photos => this.setState({ photos: photos.slice(-9, -1) }))
+  }
 
   render() {
     return (
@@ -27,7 +29,8 @@ class App extends Component {
         <div>
           <Navbar />
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/browse" component={BrowserPage} />
+          <Route exact path="/browse" component={() => <BrowserPage photos={this.state.photos} />} 
+            />
           <Route exact path="/browse/:id" component={ViewPostPage} />
           <Route exact path="/browse/:id/create" component={CreatePostPage} />
           <Route exact path="/user/:id/profile" component={ProfilePage} />
