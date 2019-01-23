@@ -1,26 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
+import 'semantic-ui-css/semantic.min.css'
+
+import Navbar from './components/Navbar'
+import BrowserPage from './pages/BrowserPage'
+import CreatePostPage from './pages/CreatePostPage'
+import HomePage from './pages/HomePage'
+import ProfilePage from './pages/ProfilePage'
+import ViewPostPage from './pages/ViewPostPage'
 
 class App extends Component {
+  state = {
+    photos: []
+  }
+
+  componentDidMount = () => {
+    fetch('')
+  }  
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <div>
+          <Navbar />
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/browse" component={BrowserPage} />
+          <Route exact path="/browse/:id" component={ViewPostPage} />
+          <Route exact path="/browse/:id/create" component={CreatePostPage} />
+          <Route exact path="/user/:id/profile" component={ProfilePage} />
+        </div>
+      </Router>
     );
   }
 }
