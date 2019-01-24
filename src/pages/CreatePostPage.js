@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Button, TextArea, Form } from 'semantic-ui-react'
+import { withRouter } from 'react-router-dom'
 
 
 
-
-export default class CreatePostPage extends Component {
+class CreatePostPage extends Component {
   state = {
     title: '',
     location: '',
@@ -44,6 +44,8 @@ export default class CreatePostPage extends Component {
     fetch('http://localhost:3000/photos', options)
       .then(res => res.json())
       .then(console.log)
+
+      this.props.history.push('/browse', this.state)
   }
 
   render() {
@@ -74,3 +76,6 @@ export default class CreatePostPage extends Component {
     )
   }
 }
+ const createPostPageWithRouter = withRouter(CreatePostPage)
+
+ export default createPostPageWithRouter;
