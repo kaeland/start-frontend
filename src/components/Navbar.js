@@ -29,10 +29,10 @@ export default class Navbar extends Component {
             onClick={this.handleItemClick}
           />
         </Link>
-        <Link to="/browse/:id">
+        <Link to="/browse/:id/create">
           <Menu.Item
-            name="post"
-            active={activeItem === "post"}
+            name="postPhoto"
+            active={activeItem === "postPhoto"}
             onClick={this.handleItemClick}
           />
         </Link>
