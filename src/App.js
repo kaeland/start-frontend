@@ -26,6 +26,10 @@ class App extends Component {
     this.setState({ user: id })
   }
 
+  updatePhotos = (photo) => {
+    let photos= this.state.photos
+    this.setState({ photos: [photo,...photos] })
+  }
   componentDidMount = () => {
     fetch('http://localhost:3000/photos')
       .then(response => response.json())
@@ -48,7 +52,7 @@ class App extends Component {
           <Route exact path="/browse" component={() => <BrowserPage photos={this.state.photos} />}
             />
           <Route exact path="/browse/:id" component={ViewPostPage} />
-          <Route exact path="/browse/:id/create" component={CreatePostPage} />
+          <Route exact path="/browse/:id/create" component={() => <CreatePostPage photoUpdate={this.updatePhotos}/>} />
           <Route exact path="/user/:id/profile" render={(props) => {
             return ( this.state.user
                 ? <ProfilePage renderProps={props} user={this.state.user} />

@@ -45,10 +45,11 @@ class CreatePostPage extends Component {
 
     fetch("http://localhost:3000/photos", options)
       .then(res => res.json())
-      .then(console.log);
+      .then((photo) => this.props.photoUpdate(photo))
 
-    this.props.history.push("/browse", this.state);
-  };
+      this.props.history.push('/browse', this.state)
+
+  }
 
   render() {
     return (
