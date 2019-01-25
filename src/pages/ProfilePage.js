@@ -2,6 +2,15 @@ import React, { Component } from "react";
 import { Card, Image, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
+let image = `https://images.unsplash.com/photo-1518558997970-4ddc236affcd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60`
+const profileBg = {
+  backgroundImage: `url(${image})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  height: '900px'
+}
+
 export default class ProfilePage extends Component {
   state = {
     userData: {}
@@ -15,8 +24,8 @@ export default class ProfilePage extends Component {
 
   render() {
     return (
-      <div>
-        <h1>ProfilePage</h1>
+      <div style={profileBg}>
+        <h1 style={{ color: 'white' }}>ProfilePage</h1>
 
         {this.state.userData === {} ? (
           <p>Loading...</p>
@@ -34,6 +43,8 @@ export default class ProfilePage extends Component {
             </Card>
 
             {this.state.userData.photos && (
+              <div>
+              <h3>Photos you posted...</h3>
               <Card.Group>
               {this.state.userData.photos.map(photo => {
                 return (
@@ -64,6 +75,7 @@ export default class ProfilePage extends Component {
                 );
               })}
             </Card.Group>
+            </div>
             )}
           </div>
         )}

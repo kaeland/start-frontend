@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, TextArea, Form } from 'semantic-ui-react'
+import { Button, TextArea, Form, Grid } from 'semantic-ui-react'
 import { withRouter } from 'react-router-dom'
 
 
@@ -51,27 +51,35 @@ class CreatePostPage extends Component {
   render() {
     return (
       <div>
-        <h1>CreatePostPage</h1>
-          <Form onSubmit={this.onSubmitHandler}>
-          <Form.Field>
-            <label>Title</label>
-            <input placeholder='Title' name="title" onChange={this.onChangeHandler} />
-          </Form.Field>
-          <Form.Field>
-            <label>Location</label>
-            <input name="location" placeholder='Location' onChange={this.onChangeHandler} />
-          </Form.Field>
-          <Form.Field>
-            <label>Image URL</label>
-            <input name="image" placeholder='Image URL' onChange={this.onChangeHandler} />
-          </Form.Field>
-          <Form.Field control={TextArea}
-            name="caption"
-            label='Caption'
-            placeholder='Tell us about your photo...'
-            onChange={this.onChangeHandler} />
-            <Button type='submit'>Submit</Button>
-        </Form>
+        <Grid>
+          <Grid.Row centered={true}>
+            <Grid.Column width={10} computer={12} widescreen={8}>
+
+              <h1>Create a photo post below...</h1>
+                <Form onSubmit={this.onSubmitHandler} className='4 wide column'>
+                <Form.Field>
+                  <label>Title</label>
+                  <input placeholder='Title' name="title" onChange={this.onChangeHandler} />
+                </Form.Field>
+                <Form.Field>
+                  <label>Location</label>
+                  <input name="location" placeholder='Location' onChange={this.onChangeHandler} />
+                </Form.Field>
+                <Form.Field>
+                  <label>Image URL</label>
+                  <input name="image" placeholder='Image URL' onChange={this.onChangeHandler} />
+                </Form.Field>
+                <Form.Field control={TextArea}
+                  name="caption"
+                  label='Caption'
+                  placeholder='Tell us about your photo...'
+                  onChange={this.onChangeHandler} />
+                  <Button type='submit'>Submit</Button>
+              </Form>
+
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       </div>
     )
   }

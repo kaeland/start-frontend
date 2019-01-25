@@ -1,6 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
-import { Form, TextArea, Button } from 'semantic-ui-react'
+import { Form, TextArea, Button, Grid } from 'semantic-ui-react'
 
 class Signup extends React.Component {
 
@@ -34,32 +34,38 @@ class Signup extends React.Component {
 
   render() {
     return (
+      <Grid>
+        <Grid.Row centered={true} >
+          <Grid.Column width={10} >
+            <Form onSubmit={this.handleSubmit}>
+            <Form.Field>
+              <label>First Name</label>
+              <input placeholder='First Name' name="first_name" onChange={this.handleChange} />
+            </Form.Field>
+            <Form.Field>
+              <label>Last Name</label>
+              <input name="last_name" placeholder='Last Name' onChange={this.handleChange} />
+            </Form.Field>
+            <Form.Field>
+              <label>Username</label>
+              <input name="username" placeholder='Username' onChange={this.handleChange} />
+            </Form.Field>
+            <Form.Field>
+              <label>Password</label>
+              <input type='password' name="password_digest" placeholder='Password' onChange={this.handleChange} />
+            </Form.Field>
 
-      <Form onSubmit={this.handleSubmit}>
-      <Form.Field>
-        <label>First Name</label>
-        <input placeholder='First Name' name="first_name" onChange={this.handleChange} />
-      </Form.Field>
-      <Form.Field>
-        <label>Last Name</label>
-        <input name="last_name" placeholder='Last Name' onChange={this.handleChange} />
-      </Form.Field>
-      <Form.Field>
-        <label>Username</label>
-        <input name="username" placeholder='Username' onChange={this.handleChange} />
-      </Form.Field>
-      <Form.Field>
-        <label>Password</label>
-        <input type='password' name="password_digest" placeholder='Password' onChange={this.handleChange} />
-      </Form.Field>
+            <Form.Field control={TextArea}
+              name="bio"
+              label='Bio'
+              placeholder='Talk about yourself here...'
+              onChange={this.handleChange} />
+              <Button type='submit'>Submit</Button>
+          </Form>
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
 
-      <Form.Field control={TextArea}
-        name="bio"
-        label='Bio'
-        placeholder='Talk about yourself here...'
-        onChange={this.handleChange} />
-        <Button type='submit'>Submit</Button>
-    </Form>
 
     )
   }

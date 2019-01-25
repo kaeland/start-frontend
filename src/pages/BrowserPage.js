@@ -9,21 +9,21 @@ export default class BrowserPage extends Component {
     return (
       <div>
         <h1 style={{ paddingBottom: '50px'}}>Check out the local pics</h1>
-        <Card.Group>
+        <Card.Group itemsPerRow={6}>
         {this.props.photos.map(photo => {
           return (
             <Link key={photo.id} to={{
                 pathname: `/browse/${photo.id}`,
                 photo: photo
               }}>
-              <Card>
+              <Card style={{ margin: '5px', height: '500px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                 <Image src={photo.image} />
                 <Card.Content>
                   <Card.Header>Title: {photo.title}</Card.Header>
                   <Card.Meta>
                     <span className="date">Location: {photo.location}</span>
                   </Card.Meta>
-                  <Card.Description>
+                  <Card.Description style={{ textOverflow: 'ellipsis' }}>
                     {photo.caption}
                   </Card.Description>
                 </Card.Content>

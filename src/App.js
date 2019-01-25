@@ -14,6 +14,7 @@ import ViewPostPage from './pages/ViewPostPage'
 import LoginForm from './pages/LoginForm'
 import Signup from './pages/Signup'
 
+
 class App extends Component {
   state = {
     photos: [],

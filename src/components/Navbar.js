@@ -43,8 +43,8 @@ export default class Navbar extends Component {
             onClick={this.handleItemClick}
           />
         </Link>
-        <Menu.Menu position="right">
-          <Menu.Item>
+      {/*   <Menu.Menu position="right">
+         <Menu.Item>
             <Input icon="search" placeholder="Search..." />
           </Menu.Item>
           <Menu.Item
@@ -52,7 +52,7 @@ export default class Navbar extends Component {
             active={activeItem === "logout"}
             onClick={this.handleItemClick}
           />
-        </Menu.Menu>
+        </Menu.Menu> */}
       </Menu>
     );
   }
