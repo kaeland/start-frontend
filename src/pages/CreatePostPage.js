@@ -35,7 +35,7 @@ class CreatePostPage extends Component {
     let location = this.state.location;
     let caption = this.state.caption;
     let image = this.state.image
-    let user = this.state.user
+    let user = this.state.user_id
 
     const formData = new FormData()
     formData.append('title', this.state.title)
