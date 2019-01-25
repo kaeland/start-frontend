@@ -11,7 +11,9 @@ class CreatePostPage extends Component {
     title: "",
     location: "",
     caption: "",
-    image: ""
+    image: "",
+    picture: '',
+    user_id: 1
   };
 
   onChangeHandler = e => {
@@ -22,25 +24,30 @@ class CreatePostPage extends Component {
     });
   };
 
+  fileHandler = (e) => {
+    this.setState({ picture:  e.target.files[0] })
+  }
+
   onSubmitHandler = e => {
+
     e.preventDefault();
     let title = this.state.title;
     let location = this.state.location;
     let caption = this.state.caption;
-    let image = this.state.image;
+    let image = this.state.image
+    let user = this.state.user
+
+    const formData = new FormData()
+    formData.append('title', this.state.title)
+    formData.append('location', this.state.location)
+    formData.append('captions', this.state.captions)
+    formData.append('image', this.state.image)
+    formData.append('picture', this.state.picture)
+    formData.append('user_id', this.state.user)
 
     let options = {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        title: title,
-        location: location,
-        image: image,
-        caption: caption,
-        user_id: 1
-      })
+      body: formData
     };
 
     fetch("http://localhost:3000/photos", options)
@@ -91,6 +98,7 @@ class CreatePostPage extends Component {
                     placeholder="Tell us about your photo..."
                     onChange={this.onChangeHandler}
                   />
+                <input type='file' onChange={this.fileHandler}/>
                   <Button primary type="submit">Submit</Button>
                 </Form>
               </Segment>

@@ -19,7 +19,7 @@ class App extends Component {
   state = {
     photos: [],
     users: [],
-    user: localStorage.getItem("id")
+    user: 1
   }
 
   updateUser = (id) => {
