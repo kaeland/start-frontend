@@ -27,8 +27,8 @@ class LoginForm extends React.Component {
       .then(res => res.json())
       .then( payload => {
         localStorage.setItem('token', payload.token)
-        localStorage.setItem('username', payload.username)
-        this.props.updateUser(payload.useranme)
+        localStorage.setItem('id', payload.id)
+        this.props.updateUser(payload.id)
         this.props.history.push('/')
       })
   }

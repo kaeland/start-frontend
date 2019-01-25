@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
-  Route
+  Route, Redirect
 } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css'
 
@@ -18,11 +18,11 @@ class App extends Component {
   state = {
     photos: [],
     users: [],
-    user: localStorage.getItem("username")
+    user: localStorage.getItem("id")
   }
 
-  updateUser = (user) => {
-    this.setState({ user:user })
+  updateUser = (id) => {
+    this.setState({ user: id })
   }
 
   componentDidMount = () => {
@@ -48,9 +48,13 @@ class App extends Component {
             />
           <Route exact path="/browse/:id" component={ViewPostPage} />
           <Route exact path="/browse/:id/create" component={CreatePostPage} />
-          <Route exact path="/user/:id/profile" render={(props) => <ProfilePage userId={props.match.params.id} user={this.state.users.length ? this.state.users[0] : null } />}
-            />
-          <Route exact path="/login" component={() => <LoginForm user={this.state.user} updateUser={this.updateUser} />}
+          <Route exact path="/user/:id/profile" render={(props) => {
+            return ( this.state.user
+                ? <ProfilePage renderProps={props} user={this.state.user} />
+                : <LoginForm updateUser={this.updateUser} />
+              )
+            }} />
+          <Route exact path="/login" component={() => <LoginForm updateUser={this.updateUser} />}
             />
           <Route exact path="/signup" component={() => <Signup updateUser={this.updateUser} />} />
         </div>
