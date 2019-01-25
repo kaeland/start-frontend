@@ -32,8 +32,9 @@ export default class ProfilePage extends Component {
                 <Card.Description>{this.state.userData.bio}</Card.Description>
               </Card.Content>
             </Card>
-            {console.log(this.state.userData.photos)}
-            {/*<Card.Group>
+
+            {this.state.userData.photos && (
+              <Card.Group>
               {this.state.userData.photos.map(photo => {
                 return (
                   <Link
@@ -63,7 +64,7 @@ export default class ProfilePage extends Component {
                 );
               })}
             </Card.Group>
-            */}
+            )}
           </div>
         )}
       </div>
