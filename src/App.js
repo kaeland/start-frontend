@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
-  Route, Redirect
+  Route
 } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css'
 
@@ -43,7 +43,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Navbar />
+          <Navbar user={this.state.user} />
           <Route exact path="/" component={HomePage} />
           <Route exact path="/browse" component={() => <BrowserPage photos={this.state.photos} />}
             />

@@ -25,7 +25,6 @@ export default class HomePage extends Component {
               <img src="https://fontmeme.com/permalink/190125/50588292a806956543bf3406ec36aaf3.png" alt="graffiti-fonts" border="0"/>
         </div>
         {/*<h1>Welcome to St.Art</h1>*/}
-
         </Container>
       </div>
     )
