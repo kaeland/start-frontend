@@ -11,6 +11,11 @@ const profileBg = {
   height: '900px'
 }
 
+const format ={
+
+    display: 'flex',
+    justifyContent: 'center'
+}
 export default class ProfilePage extends Component {
   state = {
     userData: {}
@@ -25,12 +30,14 @@ export default class ProfilePage extends Component {
   render() {
     return (
       <div style={profileBg}>
-        <h1 style={{ color: 'white' }}>ProfilePage</h1>
+        <h1 style={{ color: 'white' }}>Here's your 411</h1>
 
         {this.state.userData === {} ? (
           <p>Loading...</p>
         ) : (
           <div>
+
+
             <Card>
               <Card.Content>
                 <Card.Header>
@@ -44,7 +51,7 @@ export default class ProfilePage extends Component {
 
             {this.state.userData.photos && (
               <div>
-              <h3>Photos you posted...</h3>
+              <h3 style={{ color: 'white '}}>Photos you posted...</h3>
               <Card.Group>
               {this.state.userData.photos.map(photo => {
                 return (

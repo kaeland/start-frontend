@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { Button, TextArea, Form, Grid } from 'semantic-ui-react'
 import { withRouter } from 'react-router-dom'
 
-
+const postBg ={
+  backgroundColor: '#c4dafc'
+}
 
 class CreatePostPage extends Component {
   state = {
@@ -50,7 +52,7 @@ class CreatePostPage extends Component {
 
   render() {
     return (
-      <div>
+      <div style={postBg}>
         <Grid>
           <Grid.Row centered={true}>
             <Grid.Column width={10} computer={12} widescreen={8}>

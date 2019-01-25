@@ -9,7 +9,7 @@ export default class BrowserPage extends Component {
     return (
       <div>
         <h1 style={{ paddingBottom: '50px'}}>Check out the local pics</h1>
-        <Card.Group itemsPerRow={6}>
+        <Card.Group>
         {this.props.photos.map(photo => {
           return (
             <Link key={photo.id} to={{
